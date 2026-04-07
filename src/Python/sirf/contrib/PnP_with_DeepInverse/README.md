@@ -1,25 +1,49 @@
 # PnP in STIR (via DeepInverse)
 
-Minimal experiments combining **STIR reconstruction** with **DeepInverse-style learned priors**.
-
-## Notebooks
-
-* `HQS_DRUNet_PET.ipynb` — HQS + DRUNet (PnP denoiser)
-* TODO
-
-## Setup
-
-Install `deepinverse` from PyPi.
+A set of experiments demonstrating how to extend **SIRF/STIR PET reconstruction workflows** with **DeepInverse-style learned priors**.
 
 ## Goal
 
-Replace classical priors in STIR with learned components:
+The goal of this contribution is to explore how learned priors can be integrated into SIRF-based PET reconstruction pipelines, replacing or augmenting classical regularization methods currently available in STIR.
 
-* DRUNet (denoiser-based PnP)
-* WCRR (learned regulariser)
-* TODO
+In standard SIRF workflows, PET reconstruction relies on hand-crafted priors such as the Relative Difference Prior (RDP). Here, we investigate how these can be extended using learned components:
+
+* DRUNet: denoiser-based prior used within Plug-and-Play (PnP) reconstruction
+* WCRR: learned regularizer used in a variational reconstruction framework
+
+## Methods overview
+
+Two complementary approaches are explored:
+
+(i) **Variational learned regularization**
+* Uses WCRR as an explicit learned regularizer
+* Integrated into SIRF using Primal-Dual Three-Operator splitting (PD3O) optimization
+
+(ii) **Plug-and-Play (PnP)**
+* Integrates learned priors into SIRF reconstruction loops via a denoising step
+* Uses DRUNet as an implicit prior
+* Implemented with multiple optimization strategies:
+    * Half Quadratic Splitting (HQS)
+    * Primal-Dual Hybrid Gradient (PDHG)
+    * Stochastic Variance Reduced Gradient (SVRG)
+
+These demonstrate how SIRF can be extended to incorporate learned priors from external libraries (DeepInverse), enabling both implicit (PnP) and explicit (variational) regularization within a unified reconstruction framework.
+
+## Notebooks
+
+* `PD30_WCRR_PET.ipynb` — Variational reconstruction in SIRF using Primal-Dual Three-Operator (PD3O) with Weakly Convex Ridge Regularization (WCRR) as a learned explicit regularizer  
+* `HQS_DRUNet_PET.ipynb` — Plug-and-Play reconstruction in SIRF using Half Quadratic Splitting (HQS) with DRUNet denoiser  
+* `Matthias_PDHG.ipynb` — Plug-and-Play reconstruction in SIRF using Primal-Dual Hybrid Gradient (PDHG) with DRUNet denoiser  
+* `SVRG_DRUNet_PET.ipynb` — Plug-and-Play reconstruction in SIRF using Stochastic Variance Reduced Gradient (SVRG) with DRUNet denoiser  
+
+## Setup
+
+* Install `deepinv` from PyPI.
+* SIRF and CIL are required and are recommended to be used via the official SIRF Docker environment.
 
 ## References
 
-* https://github.com/TomographicImaging/CIL-User-Showcase/tree/main/016_cil_torch_fista_pnp
+* https://github.com/SyneRBI/SIRF  
+* https://github.com/TomographicImaging/CIL 
 * https://deepinv.github.io/deepinv/
+* https://github.com/TomographicImaging/CIL-User-Showcase/tree/main/016_cil_torch_fista_pnp
