@@ -16,25 +16,22 @@ In standard SIRF workflows, PET reconstruction relies on hand-crafted priors suc
 Two complementary approaches are explored:
 
 (i) **Variational learned regularization**
-* Uses WCRR as an explicit learned regularizer
-* Integrated into SIRF using Primal-Dual Three-Operator splitting (PD3O) optimization
+* Uses Weakly Convex Ridge Regularization (WCRR) as an explicit learned regularizer
+* Optimization is performed using the Primal-Dual Three-Operator (PD3O) algorithm.
 
 (ii) **Plug-and-Play (PnP)**
-* Integrates learned priors into SIRF reconstruction loops via a denoising step
-* Uses DRUNet as an implicit prior
+* Integrates learned priors (DRUNet) into SIRF reconstruction loop as an implicit proximal mapping.
 * Implemented with multiple optimization strategies:
     * Half Quadratic Splitting (HQS)
-    * Primal-Dual Hybrid Gradient (PDHG)
     * Stochastic Variance Reduced Gradient (SVRG)
 
 These demonstrate how SIRF can be extended to incorporate learned priors from external libraries (DeepInverse), enabling both implicit (PnP) and explicit (variational) regularization within a unified reconstruction framework.
 
 ## Notebooks
 
-* `PD30_WCRR_PET.ipynb` — Variational reconstruction in SIRF using Primal-Dual Three-Operator (PD3O) with Weakly Convex Ridge Regularization (WCRR) as a learned explicit regularizer  
-* `HQS_DRUNet_PET.ipynb` — Plug-and-Play reconstruction in SIRF using Half Quadratic Splitting (HQS) with DRUNet denoiser  
-* `Matthias_PDHG.ipynb` — Plug-and-Play reconstruction in SIRF using Primal-Dual Hybrid Gradient (PDHG) with DRUNet denoiser  
-* `SVRG_DRUNet_PET.ipynb` — Plug-and-Play reconstruction in SIRF using Stochastic Variance Reduced Gradient (SVRG) with DRUNet denoiser  
+* `PD30_WCRR_PET.ipynb` — Variational reconstruction in SIRF using PD3O with WCRR as a learned explicit regularizer  
+* `HQS_DRUNet_PET.ipynb` — Plug-and-Play reconstruction in SIRF using HQS with DRUNet denoiser  
+* `SVRG_DRUNet_PET.ipynb` — Plug-and-Play reconstruction in SIRF using SVRG with DRUNet denoiser  
 
 ## Setup
 
