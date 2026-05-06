@@ -29,9 +29,9 @@ These demonstrate how SIRF can be extended to incorporate learned priors from ex
 
 ## Notebooks
 
-* `PD30_WCRR_PET.ipynb` — Variational reconstruction in SIRF using PD3O with WCRR as a learned explicit regularizer  
-* `HQS_DRUNet_PET.ipynb` — Plug-and-Play reconstruction in SIRF using HQS with DRUNet denoiser  
-* `SVRG_DRUNet_PET.ipynb` — Plug-and-Play reconstruction in SIRF using SVRG with DRUNet denoiser  
+* [PD3O_WCRR_PET.ipynb](../../../../notebooks/PD3O_WCRR_PET.ipynb) — Variational reconstruction in SIRF using PD3O with WCRR as a learned explicit regularizer
+* [HQS_DRUNet_PET.ipynb](../../../../notebooks/HQS_DRUNet_PET.ipynb) — Plug-and-Play reconstruction in SIRF using HQS with DRUNet denoiser
+* [SVRG_DRUNet_PET.ipynb](../../../../notebooks/SVRG_DRUNet_PET.ipynb) — Plug-and-Play reconstruction in SIRF using SVRG with DRUNet denoiser
 
 ## Setup
 
